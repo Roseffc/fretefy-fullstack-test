@@ -1,0 +1,35 @@
+<div class="card p-2 shadow">
+  <table class="table">
+    <thead class="bg-secondary-subtle">
+      <tr>
+        <th scope="col">Nome da Região</th>
+        <th scope="col">Status</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of [1, 2, 3, 4, 5]">
+        <td>Região Sul</td>
+        <td>
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+            <label
+              class="form-check-label"
+              for="flexSwitchCheckDefault"
+            ></label>
+          </div>
+        </td>
+        <td>
+          <button class="btn btn-outline-primary btn-sm">
+            <i class="bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
