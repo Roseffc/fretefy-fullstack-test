@@ -1,0 +1,153 @@
+{
+  "cidades": [
+    {
+      "id": 1,
+      "cidade": "Rio Branco",
+      "UF": "AC"
+    },
+    {
+      "id": 2,
+      "cidade": "Maceió",
+      "UF": "AL"
+    },
+    {
+      "id": 3,
+      "cidade": "Macapá",
+      "UF": "AP"
+    },
+    {
+      "id": 4,
+      "cidade": "Manaus",
+      "UF": "AM"
+    },
+    {
+      "id": 5,
+      "cidade": "Salvador",
+      "UF": "BA"
+    },
+    {
+      "id": 6,
+      "cidade": "Fortaleza",
+      "UF": "CE"
+    },
+    {
+      "id": 7,
+      "cidade": "Brasília",
+      "UF": "DF"
+    },
+    {
+      "id": 8,
+      "cidade": "Vitória",
+      "UF": "ES"
+    },
+    {
+      "id": 9,
+      "cidade": "Goiânia",
+      "UF": "GO"
+    },
+    {
+      "id": 10,
+      "cidade": "São Luís",
+      "UF": "MA"
+    },
+    {
+      "id": 11,
+      "cidade": "Cuiabá",
+      "UF": "MT"
+    },
+    {
+      "id": 12,
+      "cidade": "Campo Grande",
+      "UF": "MS"
+    },
+    {
+      "id": 13,
+      "cidade": "Belo Horizonte",
+      "UF": "MG"
+    },
+    {
+      "id": 14,
+      "cidade": "Belém",
+      "UF": "PA"
+    },
+    {
+      "id": 15,
+      "cidade": "João Pessoa",
+      "UF": "PB"
+    },
+    {
+      "id": 16,
+      "cidade": "Curitiba",
+      "UF": "PR"
+    },
+    {
+      "id": 17,
+      "cidade": "Recife",
+      "UF": "PE"
+    },
+    {
+      "id": 18,
+      "cidade": "Teresina",
+      "UF": "PI"
+    },
+    {
+      "id": 19,
+      "cidade": "Rio de Janeiro",
+      "UF": "RJ"
+    },
+    {
+      "id": 20,
+      "cidade": "Natal",
+      "UF": "RN"
+    },
+    {
+      "id": 21,
+      "cidade": "Porto Alegre",
+      "UF": "RS"
+    },
+    {
+      "id": 22,
+      "cidade": "Porto Velho",
+      "UF": "RO"
+    },
+    {
+      "id": 23,
+      "cidade": "Boa Vista",
+      "UF": "RR"
+    },
+    {
+      "id": 24,
+      "cidade": "Florianópolis",
+      "UF": "SC"
+    },
+    {
+      "id": 25,
+      "cidade": "São Paulo",
+      "UF": "SP"
+    },
+    {
+      "id": 26,
+      "cidade": "Aracaju",
+      "UF": "SE"
+    },
+    {
+      "id": 27,
+      "cidade": "Palmas",
+      "UF": "TO"
+    }
+  ],
+  "regiao": [
+    {
+      "nome": "Regiao nordeste",
+      "cidades": [
+        {
+          "id": 5,
+          "cidade": "Salvador",
+          "UF": "BA"
+        }
+      ],
+      "ativo": false,
+      "id": 1
+    }
+  ]
+}
