@@ -16,6 +16,8 @@ const VALUE_ACCESSOR = {
 })
 export class SeletorCidadesComponent implements ControlValueAccessor  {
 
+  @Input() listaCidades=[];
+
   @Input() indexForm = 0;
   value: any;
   onChange = (value: any) => {};
@@ -26,6 +28,7 @@ export class SeletorCidadesComponent implements ControlValueAccessor  {
   constructor() { }
 
   ngOnInit() {
+
   }
 
   writeValue(value: any) {

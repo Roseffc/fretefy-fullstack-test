@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
+import { CadastroRegiaoService } from '../cadastro-regiao.service';
 
 @Component({
   selector: 'app-cadastro-regiao',
@@ -10,11 +11,13 @@ import { FormArray } from '@angular/forms';
 export class CadastroRegiaoComponent implements OnInit {
 
   regiaoForm: FormGroup;
+  listaCidades=[];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private cadastroRegiaoService: CadastroRegiaoService) {}
 
   ngOnInit() {
-    this.setFormRegiao()
+    this.setFormRegiao();
+    this.getListaCidades();
   }
 
   setFormRegiao() {
@@ -32,5 +35,15 @@ export class CadastroRegiaoComponent implements OnInit {
 
   addCidades() {
     this.cidades.push(this.fb.control(''));
+  }
+
+  getListaCidades() {
+    this.cadastroRegiaoService.getListaCidades().subscribe(
+      (result:any) => {
+        this.listaCidades = result
+       },error => {
+        console.log("error", error)
+      }
+    )
   }
 }

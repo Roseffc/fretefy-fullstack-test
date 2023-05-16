@@ -7,13 +7,16 @@ import { CadastroRegiaoComponent } from './cadastro-regiao/cadastro-regiao.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListaRegiaoComponent } from './lista-regiao/lista-regiao.component';
 import { SeletorCidadesComponent } from './seletor-cidades/seletor-cidades.component';
+import { CadastroRegiaoService } from './cadastro-regiao.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     RegiaoRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   declarations: [
     RegiaoComponent,
@@ -21,6 +24,7 @@ import { SeletorCidadesComponent } from './seletor-cidades/seletor-cidades.compo
     CadastroRegiaoComponent,
     SeletorCidadesComponent
   ],
-  exports: [RegiaoComponent]
+  exports: [RegiaoComponent],
+  providers:[CadastroRegiaoService]
 })
 export class RegiaoModule { }
