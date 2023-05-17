@@ -22,7 +22,7 @@ export class CadastroRegiaoComponent implements OnInit {
 
   setFormRegiao() {
     this.regiaoForm = this.fb.group({
-      regiao: ['', Validators.required],
+      nome: ['', Validators.required],
       cidades: this.fb.array([
         this.fb.control('')
       ])
@@ -34,7 +34,7 @@ export class CadastroRegiaoComponent implements OnInit {
   }
 
   addCidades() {
-    this.cidades.push(this.fb.control(''));
+    this.cidades.push(this.fb.control('rose'));
   }
 
   getListaCidades() {
@@ -46,4 +46,15 @@ export class CadastroRegiaoComponent implements OnInit {
       }
     )
   }
+
+  salvarRegiao() {
+    this.cadastroRegiaoService.SaveRegiao(this.regiaoForm.value)
+      .subscribe(result => {
+        alert('Salvo com sucesso!');
+      }, (error)=> {
+        console.log('salvarRegiao', error);
+      });
+  }
+
+
 }

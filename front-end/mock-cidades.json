@@ -148,6 +148,46 @@
       ],
       "ativo": false,
       "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "nome": "Região nordeste",
+      "cidades": [
+        {
+          "id": 21,
+          "cidade": "Porto Alegre",
+          "UF": "RS"
+        },
+        {
+          "id": 15,
+          "cidade": "João Pessoa",
+          "UF": "PB"
+        },
+        {
+          "id": 18,
+          "cidade": "Teresina",
+          "UF": "PI"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "nome": "Região nordeste",
+      "cidades": [
+        {
+          "id": 17,
+          "cidade": "Recife",
+          "UF": "PE"
+        },
+        {
+          "id": 19,
+          "cidade": "Rio de Janeiro",
+          "UF": "RJ"
+        }
+      ],
+      "id": 4
     }
   ]
 }

@@ -1,40 +1,43 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-
 const VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => SeletorCidadesComponent),
-  multi: true
+  multi: true,
 };
 
 @Component({
   selector: 'app-seletor-cidades',
   templateUrl: './seletor-cidades.component.html',
   styleUrls: ['./seletor-cidades.component.scss'],
-  providers: [VALUE_ACCESSOR]
+  providers: [VALUE_ACCESSOR],
 })
-export class SeletorCidadesComponent implements ControlValueAccessor  {
-
-  @Input() listaCidades=[];
+export class SeletorCidadesComponent implements ControlValueAccessor {
+  @Input() listaCidades = [];
 
   @Input() indexForm = 0;
-  value: any;
-  onChange = (value: any) => {};
-  onTouch = () => {};
+  onChange: (value: any) => void = () => {};
+  onTouch: () => void = () => {};
   touched = false;
   disabled = false;
 
-  constructor() { }
+  private innerValue: any;
 
-  ngOnInit() {
+  get value() {
+    return this.innerValue;
+  }
 
+  set value(v: any) {
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.onChange(v);
+    }
   }
 
   writeValue(value: any) {
+    console.log('writeValue', value);
     this.value = value;
-    this.onChange(value);
-    this.onTouch();
   }
 
   registerOnChange(onChange: any) {
@@ -44,5 +47,4 @@ export class SeletorCidadesComponent implements ControlValueAccessor  {
   registerOnTouched(onTouch) {
     this.onTouch = onTouch;
   }
-
 }

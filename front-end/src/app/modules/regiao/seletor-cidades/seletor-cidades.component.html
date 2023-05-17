@@ -1,7 +1,12 @@
 <div class="d-flex w-50">
-  <select class="form-select p-2 mb-4 border-2 w-60" aria-label="Default select example" [(ngModel)]="value"
-    (blur)="onTouch()" (input)="onChange(value)">
-    <option *ngFor="let item of listaCidades" [value]="cidade"><p>{{item.cidade + ' - ' +  item.UF}}</p></option>
+  <select
+    class="form-select p-2 mb-4 border-2 w-60"
+    aria-label="Default select example"
+    [(ngModel)]="value"
+    (blur)="onTouch()"
+    (input)="onChange(value)"
+  >
+    <option *ngFor="let item of listaCidades" [ngValue]="item"><p>{{item.cidade + ' - ' +  item.UF}}</p></option>
   </select>
   <button type="button" class="btn btn-outline-danger btn-sm mb-4 ms-3">
     <i class="bi bi-trash"></i>
