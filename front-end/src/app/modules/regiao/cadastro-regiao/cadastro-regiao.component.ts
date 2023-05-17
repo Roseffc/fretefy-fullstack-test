@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { CadastroRegiaoService } from '../cadastro-regiao.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-regiao',
@@ -11,15 +12,19 @@ import { CadastroRegiaoService } from '../cadastro-regiao.service';
 export class CadastroRegiaoComponent implements OnInit {
   regiaoForm: FormGroup;
   listaCidades = [];
+  idRegiao = '';
 
   constructor(
     private fb: FormBuilder,
-    private cadastroRegiaoService: CadastroRegiaoService
+    private cadastroRegiaoService: CadastroRegiaoService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.setFormRegiao();
     this.getListaCidades();
+    this.idRegiao = this.route.snapshot.paramMap.get('id');
+    this.getRegiao(this.idRegiao)
   }
 
   setFormRegiao() {
@@ -46,6 +51,28 @@ export class CadastroRegiaoComponent implements OnInit {
         console.log('error', error);
       }
     );
+  }
+
+  getRegiao(id) {
+    this.cadastroRegiaoService.getRegiao(id).subscribe(
+      (result: any) => {
+        console.log('regiao get', result)
+        this.setDadosRegiao(result)
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+  }
+
+  setDadosRegiao(regiao) {
+    this.regiaoForm.patchValue({
+      nome: regiao.nome
+    });
+    regiao.cidades.forEach(cidade => {
+      this.cidades.push(this.fb.control(cidade, Validators.required ));
+    });
+
   }
 
   salvarRegiao() {

@@ -146,11 +146,12 @@
           "UF": "BA"
         }
       ],
-      "ativo": false,
+      "ativo": true,
       "id": 1
     },
     {
-      "id": 2
+      "id": 2,
+      "ativo": true
     },
     {
       "nome": "Região nordeste",
@@ -171,7 +172,8 @@
           "UF": "PI"
         }
       ],
-      "id": 3
+      "id": 3,
+      "ativo": true
     },
     {
       "nome": "Região nordeste",
@@ -187,7 +189,8 @@
           "UF": "RJ"
         }
       ],
-      "id": 4
+      "id": 4,
+      "ativo": true
     },
     {
       "nome": "",
@@ -283,6 +286,32 @@
         }
       ],
       "id": 9
+    },
+    {
+      "nome": "Região nordeste",
+      "cidades": [
+        {
+          "id": 26,
+          "cidade": "Aracaju",
+          "UF": "SE"
+        },
+        {
+          "id": 21,
+          "cidade": "Porto Alegre",
+          "UF": "RS"
+        },
+        {
+          "id": 21,
+          "cidade": "Porto Alegre",
+          "UF": "RS"
+        },
+        {
+          "id": 21,
+          "cidade": "Porto Alegre",
+          "UF": "RS"
+        }
+      ],
+      "id": 10
     }
   ]
 }

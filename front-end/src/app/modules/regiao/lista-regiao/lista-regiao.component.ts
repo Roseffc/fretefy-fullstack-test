@@ -26,4 +26,15 @@ export class ListaRegiaoComponent implements OnInit {
       }
     )
   }
+
+  onStatusChange(event, regiao) {
+    console.log(event.target.checked)
+    const body = { ...regiao, ativo: event.target.checked }
+    this.cadastroRegiaoService.saveStatusRegiao(regiao.id, body)
+    .subscribe(result => {
+      alert('Salvo com sucesso!')
+    }, (error => {
+      console.log(error)
+    }))
+  }
 }
