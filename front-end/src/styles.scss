@@ -9,6 +9,15 @@ html, body {
     background-color: #dfe6e9!important;
 }
 
+.form-control.ng-invalid.ng-touched {
+   border: solid 1px red;
+}
+.form-select.ng-invalid {
+   border: solid 1px red;
+}
+
+
+
 
 
 

@@ -6,14 +6,16 @@ import { CadastroRegiaoService } from '../cadastro-regiao.service';
 @Component({
   selector: 'app-cadastro-regiao',
   templateUrl: './cadastro-regiao.component.html',
-  styleUrls: ['./cadastro-regiao.component.scss']
+  styleUrls: ['./cadastro-regiao.component.scss'],
 })
 export class CadastroRegiaoComponent implements OnInit {
-
   regiaoForm: FormGroup;
-  listaCidades=[];
+  listaCidades = [];
 
-  constructor(private fb: FormBuilder, private cadastroRegiaoService: CadastroRegiaoService) {}
+  constructor(
+    private fb: FormBuilder,
+    private cadastroRegiaoService: CadastroRegiaoService
+  ) {}
 
   ngOnInit() {
     this.setFormRegiao();
@@ -23,9 +25,7 @@ export class CadastroRegiaoComponent implements OnInit {
   setFormRegiao() {
     this.regiaoForm = this.fb.group({
       nome: ['', Validators.required],
-      cidades: this.fb.array([
-        this.fb.control('')
-      ])
+      cidades: this.fb.array([this.fb.control('', Validators.required )]),
     });
   }
 
@@ -34,27 +34,43 @@ export class CadastroRegiaoComponent implements OnInit {
   }
 
   addCidades() {
-    this.cidades.push(this.fb.control('rose'));
+    this.cidades.push(this.fb.control('', Validators.required ));
   }
 
   getListaCidades() {
     this.cadastroRegiaoService.getListaCidades().subscribe(
-      (result:any) => {
-        this.listaCidades = result
-       },error => {
-        console.log("error", error)
+      (result: any) => {
+        this.listaCidades = result;
+      },
+      (error) => {
+        console.log('error', error);
       }
-    )
+    );
   }
 
   salvarRegiao() {
-    this.cadastroRegiaoService.SaveRegiao(this.regiaoForm.value)
-      .subscribe(result => {
-        alert('Salvo com sucesso!');
-      }, (error)=> {
-        console.log('salvarRegiao', error);
-      });
+    if (this.regiaoForm.valid) {
+      this.cadastroRegiaoService.SaveRegiao(this.regiaoForm.value).subscribe(
+        (result) => {
+          alert('Salvo com sucesso!');
+        },
+        (error) => {
+          console.log('salvarRegiao', error);
+        }
+      );
+    } else {
+      this.verificaValidacoesForm(this.regiaoForm);
+    }
   }
 
-
+  verificaValidacoesForm(formGroup: FormGroup | FormArray) {
+    Object.keys(formGroup.controls).forEach((campo) => {
+      const controle = formGroup.get(campo);
+      controle.markAsDirty();
+      controle.markAsTouched();
+      if (controle instanceof FormGroup || controle instanceof FormArray) {
+        this.verificaValidacoesForm(controle);
+      }
+    });
+  }
 }

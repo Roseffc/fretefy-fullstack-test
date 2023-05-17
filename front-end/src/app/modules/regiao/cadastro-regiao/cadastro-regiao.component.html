@@ -1,11 +1,13 @@
 <div class="card shadow container mt-5 p-sm-5">
   <h1 class="fs-2 my-4">Cadastro de região</h1>
-  <form [formGroup]="regiaoForm">
+  <form [formGroup]="regiaoForm" (ngSubmit)="salvarRegiao()">
     <div class="form-floating mb-3">
-      <input type="email" class="form-control border-2" id="floatingInput" placeholder="name@example.com"
-      formControlName="nome">
-      <label for="floatingInput">Nome da região</label>
+      <input type="text" class="form-control border-2" id="nome" placeholder="Digite um nome" formControlName="nome">
+      <label for="nome">Nome da região</label>
     </div>
+    <span class="text-danger fs-12"
+      *ngIf="regiaoForm.get('nome').hasError('required') && (regiaoForm.get('nome')?.dirty || regiaoForm.get('nome')?.touched)">Campo
+      obrigatório</span>
     <div class="d-flex justify-content-between align-items-baseline my-3 w-50">
       <h3 class="my-3">Locais da região</h3>
       <button type="button" class="btn btn-outline-primary btn-lg rounded-5 fs-6" (click)="addCidades()"> <i
@@ -13,12 +15,13 @@
     </div>
     <div formArrayName="cidades">
       <div *ngFor="let cidade of cidades.controls; let i=index">
-        <app-seletor-cidades class="mb-3" [indexForm]="i" [formControlName]="i" [listaCidades]="listaCidades"></app-seletor-cidades>
+        <app-seletor-cidades class="mb-3" [indexForm]="i" [formControlName]="i"
+          [listaCidades]="listaCidades"></app-seletor-cidades>
       </div>
     </div>
     <div class="d-flex mt-4 mb-5">
       <button type="button" class="btn btn-outline-secondary me-4">Cancelar</button>
-      <button type="button" class="btn btn-primary px-5" (click)="salvarRegiao()">Salvar</button>
+      <button type="submit" class="btn btn-primary px-5">Salvar</button>
     </div>
   </form>
 </div>
