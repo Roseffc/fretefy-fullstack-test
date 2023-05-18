@@ -146,22 +146,11 @@
           "UF": "BA"
         }
       ],
-      "ativo": true,
+      "ativo": false,
       "id": 1
     },
     {
-      "nome": "ROSANGELA FREITAS FERREIRA CARDOSO",
-      "cidades": [
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "nome": "Regiao nordeste",
+      "nome": "Região Sudeste",
       "cidades": [
         {
           "id": 19,
@@ -169,12 +158,40 @@
           "UF": "RJ"
         },
         {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
+          "id": 25,
+          "cidade": "São Paulo",
+          "UF": "SP"
+        },
+        {
+          "id": 13,
+          "cidade": "Belo Horizonte",
+          "UF": "MG"
         }
       ],
-      "id": 3
+      "id": 4,
+      "ativo": false
+    },
+    {
+      "nome": "Região Sul",
+      "cidades": [
+        {
+          "id": 16,
+          "cidade": "Curitiba",
+          "UF": "PR"
+        },
+        {
+          "id": 24,
+          "cidade": "Florianópolis",
+          "UF": "SC"
+        },
+        {
+          "id": 21,
+          "cidade": "Porto Alegre",
+          "UF": "RS"
+        }
+      ],
+      "id": 5,
+      "ativo": true
     }
   ]
 }
