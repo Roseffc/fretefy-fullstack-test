@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CadastroRegiaoComponent } from '../cadastro-regiao/cadastro-regiao.component';
 import { CadastroRegiaoService } from '../cadastro-regiao.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-regiao',
@@ -32,9 +33,21 @@ export class ListaRegiaoComponent implements OnInit {
     const body = { ...regiao, ativo: event.target.checked }
     this.cadastroRegiaoService.saveStatusRegiao(regiao.id, body)
     .subscribe(result => {
-      alert('Salvo com sucesso!')
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Salvo com sucesso!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
     }, (error => {
-      console.log(error)
+      Swal.fire({
+        title: 'Error!',
+        text: 'Erro ao salvar',
+        icon: 'error',
+        confirmButtonText: 'Fechar'
+      })
     }))
   }
 }

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { CadastroRegiaoService } from '../cadastro-regiao.service';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-cadastro-regiao',
@@ -13,6 +15,7 @@ export class CadastroRegiaoComponent implements OnInit {
   regiaoForm: FormGroup;
   listaCidades = [];
   idRegiao = '';
+  title= 'Cadastro de região'
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +27,9 @@ export class CadastroRegiaoComponent implements OnInit {
     this.setFormRegiao();
     this.getListaCidades();
     this.idRegiao = this.route.snapshot.paramMap.get('id');
+    if (this.idRegiao) {
+      this.title = 'Editar região'
+    }
     this.getRegiao(this.idRegiao)
   }
 
@@ -79,10 +85,21 @@ export class CadastroRegiaoComponent implements OnInit {
     if (this.regiaoForm.valid) {
       this.cadastroRegiaoService.SaveRegiao(this.regiaoForm.value).subscribe(
         (result) => {
-          alert('Salvo com sucesso!');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Salvo com sucesso!',
+            showConfirmButton: false,
+            timer: 1500
+          })
         },
         (error) => {
-          console.log('salvarRegiao', error);
+          Swal.fire({
+            title: 'Error!',
+            text: 'Erro ao salvar',
+            icon: 'error',
+            confirmButtonText: 'Fechar'
+          })
         }
       );
     } else {

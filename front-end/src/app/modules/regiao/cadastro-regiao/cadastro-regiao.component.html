@@ -1,5 +1,5 @@
 <div class="card shadow container mt-5 p-sm-5">
-  <h1 class="fs-2 my-4">Cadastro de região</h1>
+  <h1 class="fs-2 my-4">{{ title }}</h1>
   <form [formGroup]="regiaoForm" (ngSubmit)="salvarRegiao()">
     <div class="form-floating mb-3">
       <input type="text" class="form-control border-2" id="nome" placeholder="Digite um nome" formControlName="nome">

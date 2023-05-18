@@ -150,71 +150,23 @@
       "id": 1
     },
     {
-      "id": 2,
-      "ativo": true
-    },
-    {
-      "nome": "Região nordeste",
+      "nome": "ROSANGELA FREITAS FERREIRA CARDOSO",
       "cidades": [
-        {
-          "id": 21,
-          "cidade": "Porto Alegre",
-          "UF": "RS"
-        },
-        {
-          "id": 15,
-          "cidade": "João Pessoa",
-          "UF": "PB"
-        },
         {
           "id": 18,
           "cidade": "Teresina",
           "UF": "PI"
         }
       ],
-      "id": 3,
-      "ativo": true
+      "id": 2
     },
     {
-      "nome": "Região nordeste",
+      "nome": "Regiao nordeste",
       "cidades": [
-        {
-          "id": 17,
-          "cidade": "Recife",
-          "UF": "PE"
-        },
         {
           "id": 19,
           "cidade": "Rio de Janeiro",
           "UF": "RJ"
-        }
-      ],
-      "id": 4,
-      "ativo": true
-    },
-    {
-      "nome": "",
-      "cidades": [
-        {
-          "id": 21,
-          "cidade": "Porto Alegre",
-          "UF": "RS"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "nome": "dssfsdfsfsf",
-      "cidades": [
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        },
-        {
-          "id": 17,
-          "cidade": "Recife",
-          "UF": "PE"
         },
         {
           "id": 18,
@@ -222,96 +174,7 @@
           "UF": "PI"
         }
       ],
-      "id": 6
-    },
-    {
-      "nome": "dssfsdfsfsf",
-      "cidades": [
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        },
-        {
-          "id": 17,
-          "cidade": "Recife",
-          "UF": "PE"
-        },
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        }
-      ],
-      "id": 7
-    },
-    {
-      "nome": "sddsdd",
-      "cidades": [
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        },
-        {
-          "id": 17,
-          "cidade": "Recife",
-          "UF": "PE"
-        },
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        }
-      ],
-      "id": 8
-    },
-    {
-      "nome": "sddsdd",
-      "cidades": [
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        },
-        {
-          "id": 17,
-          "cidade": "Recife",
-          "UF": "PE"
-        },
-        {
-          "id": 18,
-          "cidade": "Teresina",
-          "UF": "PI"
-        }
-      ],
-      "id": 9
-    },
-    {
-      "nome": "Região nordeste",
-      "cidades": [
-        {
-          "id": 26,
-          "cidade": "Aracaju",
-          "UF": "SE"
-        },
-        {
-          "id": 21,
-          "cidade": "Porto Alegre",
-          "UF": "RS"
-        },
-        {
-          "id": 21,
-          "cidade": "Porto Alegre",
-          "UF": "RS"
-        },
-        {
-          "id": 21,
-          "cidade": "Porto Alegre",
-          "UF": "RS"
-        }
-      ],
-      "id": 10
+      "id": 3
     }
   ]
 }
