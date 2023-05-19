@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { CadastroRegiaoService } from '../cadastro-regiao.service';
 import { ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2'
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastro-regiao',
@@ -15,7 +14,7 @@ export class CadastroRegiaoComponent implements OnInit {
   regiaoForm: FormGroup;
   listaCidades = [];
   idRegiao = '';
-  title= 'Cadastro de região'
+  title = 'Cadastro de região';
 
   constructor(
     private fb: FormBuilder,
@@ -28,15 +27,15 @@ export class CadastroRegiaoComponent implements OnInit {
     this.getListaCidades();
     this.idRegiao = this.route.snapshot.paramMap.get('id');
     if (this.idRegiao) {
-      this.title = 'Editar região'
+      this.title = 'Editar região';
+      this.getRegiao(this.idRegiao);
     }
-    this.getRegiao(this.idRegiao)
   }
 
   setFormRegiao() {
     this.regiaoForm = this.fb.group({
       nome: ['', Validators.required],
-      cidades: this.fb.array([this.fb.control('', Validators.required )]),
+      cidades: this.fb.array([this.fb.control('', Validators.required)]),
     });
   }
 
@@ -45,7 +44,7 @@ export class CadastroRegiaoComponent implements OnInit {
   }
 
   addCidades() {
-    this.cidades.push(this.fb.control('', Validators.required ));
+    this.cidades.push(this.fb.control('', Validators.required));
   }
 
   getListaCidades() {
@@ -62,8 +61,7 @@ export class CadastroRegiaoComponent implements OnInit {
   getRegiao(id) {
     this.cadastroRegiaoService.getRegiao(id).subscribe(
       (result: any) => {
-        console.log('regiao get', result)
-        this.setDadosRegiao(result)
+        this.setDadosRegiao(result);
       },
       (error) => {
         console.log('error', error);
@@ -73,35 +71,47 @@ export class CadastroRegiaoComponent implements OnInit {
 
   setDadosRegiao(regiao) {
     this.regiaoForm.patchValue({
-      nome: regiao.nome
+      nome: regiao.nome,
     });
-    regiao.cidades.forEach(cidade => {
-      this.cidades.push(this.fb.control(cidade, Validators.required ));
+    regiao.cidades.forEach((cidade) => {
+      this.cidades.push(this.fb.control(cidade, Validators.required));
     });
-
   }
 
-  salvarRegiao() {
+  async salvarRegiao() {
     if (this.regiaoForm.valid) {
-      this.cadastroRegiaoService.SaveRegiao(this.regiaoForm.value).subscribe(
-        (result) => {
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Salvo com sucesso!',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        },
-        (error) => {
-          Swal.fire({
-            title: 'Error!',
-            text: 'Erro ao salvar',
-            icon: 'error',
-            confirmButtonText: 'Fechar'
-          })
-        }
+      const { nome } = this.regiaoForm.value;
+      const result: any = await this.cadastroRegiaoService.getRegiaoByName(
+        nome
       );
+      if (result.length === 0) {
+        this.cadastroRegiaoService.SaveRegiao(this.regiaoForm.value).subscribe(
+          (result) => {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Salvo com sucesso!',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          },
+          (error) => {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Erro ao salvar',
+              icon: 'error',
+              confirmButtonText: 'Fechar',
+            });
+          }
+        );
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'Nome da região já foi cadastrado!',
+          icon: 'error',
+          confirmButtonText: 'Fechar',
+        });
+      }
     } else {
       this.verificaValidacoesForm(this.regiaoForm);
     }

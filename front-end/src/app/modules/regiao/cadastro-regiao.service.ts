@@ -33,4 +33,9 @@ export class CadastroRegiaoService {
     return this.httpClient.post(`${environment.urlApi}/regiao`, body)
     .pipe(take(1));
   }
+
+  getRegiaoByName(nome) {
+    return this.httpClient.get(`${environment.urlApi}/regiao?nome=${nome}`).toPromise()
+  }
+
 }
